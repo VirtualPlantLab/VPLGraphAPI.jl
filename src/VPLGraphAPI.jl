@@ -96,13 +96,7 @@ Check if a node has a parent node.
 function has_parent end
 has_parent(g::VPLGraphNode) = nothing
 
-"""
-    parent(g::VPLGraphNode)
-
-Given a node, extract its parent node.
-"""
-function parent end
-parent(g::VPLGraphNode) = nothing
+# parent is part of the API but it is already defined in Base
 
 """
     has_ancestor(g::VPLGraphNode)

@@ -33,7 +33,6 @@ let
 
     @test VPLGraphAPI.is_root(node) === nothing
     @test VPLGraphAPI.has_parent(node) === nothing
-    @test VPLGraphAPI.parent(node) === nothing
     @test VPLGraphAPI.has_ancestor(node) === nothing
     @test VPLGraphAPI.ancestor(node) === nothing
     @test VPLGraphAPI.is_leaf(node) === nothing
