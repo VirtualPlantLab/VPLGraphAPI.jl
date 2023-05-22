@@ -8,13 +8,24 @@ components and do not require implementation-specific details. For example, a pa
 generates geometry from a graph should define its methods for these abstract types, thus
 allowing different implementations.
 =#
+
 """
     VPLGraph
 
-Abstract type for any VPL-style graph. Any method that needs to interact with a VPL-style
-graph should be defined for `VPLGraph` unless implementation-specific details are required.
+Abstract type for dynamic VPL-style graphs. Any method that needs to interact with a dynamic
+VPL-style graph should be defined for `VPLGraph` unless implementation-specific details are
+required.
 """
 abstract type VPLGraph end
+
+"""
+    VPLStaticGraph
+
+Abstract type for static VPL-style graph (collections of VPLGraphNode). Any method that
+needs to interact with a static VPL-style graph should be defined for `VPLStaticGraph`
+unless implementation-specific details are required.
+"""
+abstract type VPLStaticGraph end
 
 """
     VPLGraphNode
@@ -96,7 +107,7 @@ Check if a node has a parent node.
 function has_parent end
 has_parent(g::VPLGraphNode) = nothing
 
-# parent is part of the API but it is already defined in Base
+# parent would be part of the API but it is already defined in Base
 
 """
     has_ancestor(g::VPLGraphNode)
@@ -161,5 +172,21 @@ Traverse a graph and execute a given function for each node.
 """
 function traverse end
 traverse(g::VPLGraph) = nothing
+
+
+#=
+Domain Specific Language for building static VPL-style graphs
+
+These are methods define on abstract types. They are meant to be used by any package that
+builds a static VPL-style graph and do not require implementation-specific details.
+=#
+"""
+    +(n1::VPLNodeData, n2::VPLNodeData)
+
+Creates a graph with two nodes where `n1` is the root and `n2` is the insertion point.
+```
+"""
++(n1::VPLNodeData, n2::VPLNodeData) = nothing
+
 
 end
