@@ -100,6 +100,16 @@ function is_root end
 is_root(g::VPLGraphNode) = nothing
 
 """
+    root(g::VPLGraph)
+    root(g::VPLStaticGraph)
+
+Return the node that is the root of a dynamic or static graph.
+"""
+function root end
+root(g::VPLGraph) = nothing
+root(g::VPLStaticGraph) = nothing
+
+"""
     has_parent(g::VPLGraphNode)
 
 Check if a node has a parent node.
